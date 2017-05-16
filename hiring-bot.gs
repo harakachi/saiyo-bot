@@ -1,6 +1,7 @@
 var slack = {
-  postUrl: 'https://slack.com/api/chat.postMessage',
-  userName: "応募者連絡botさん", // botの名前
+  postUrl:   'https://slack.com/api/chat.postMessage',
+  userName:  'saiyo-botさん',
+  iconEmoji: ':gori2:',
 }
 
 function myFunction() {
@@ -75,7 +76,9 @@ function myFunction() {
     for (var i = 0; i < apply_array.length; i++) {
   　　　　　　　 message_body += apply_array[i];
 　　　　　　　　};
-    slackApp.postMessage(post_channel,"昨日の応募者は *"+num_apply+"人* でした。確認お願いします！ :bow:\n" + message_body,{username : slack["userName"]});
+    slackApp.postMessage(post_channel,
+                         "昨日の応募者は *"+num_apply+"人* でした。確認お願いします！ :gori2::gori2::gori2:\n" + message_body,
+                         { username: slack["userName"], icon_emoji: slack["iconEmoji"]});
   }
 }
 
