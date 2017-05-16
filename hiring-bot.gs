@@ -45,14 +45,14 @@ function myFunction() {
               + "大友コメント:" 　+ comment + "\n"
               + "```\n"
 
-    //FJ特例対応
+    // 特例対応
     if ( job_type.match("FJ") && (decision == "☓")) {
       continue
     }
       
     // チャンネル名ごとに振り分け
     if (apply_data[channel_name] === undefined) {
-        apply_data[channel_name] = []
+      apply_data[channel_name] = []
     }
     apply_data[channel_name].push(message)
   }
