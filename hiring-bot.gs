@@ -16,14 +16,10 @@ function myFunction() {
   
   for (var i = 1; i <= sheet.getLastRow(); i++) {
     var v = new Date( sheet.getRange(i,8).getValue() )
-    if (v == ''){
-      continue 
-    }
+    if (v == '')　continue 
     
     date = Utilities.formatDate(v, "JST", "yyyy/MM/dd")
-    if (formattedDate != date) {
-      continue 
-    }
+    if (formattedDate != date) continue 
     
     var job_type      = sheet.getRange(i,3).getValue()
     var route         = sheet.getRange(i,5).getValue()
