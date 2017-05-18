@@ -75,12 +75,16 @@ function myFunction() {
     var channel_id = array[0].channel_id
     var custom_message = array[0].custom_message
     
+    var default_message = "確認お願いします！ :gori2::gori2::gori2:"
+    var msg = (custom_message) ? custom_message : default_message
+    msg += "\n"
+    
     for (var i=0;i<array.length;i++) {
       message_body += array[i].message
       num_apply++;
     }
     slackApp.postMessage(channel_id,
-                         "昨日の応募者は *"+num_apply+"人* でした。確認お願いします！ :gori2::gori2::gori2:\n" + message_body,
+                         "昨日の応募者は *"+num_apply+"人* でした。" + msg + message_body,
                          { username: slack["userName"], icon_emoji: slack["iconEmoji"]});
   }
 }
