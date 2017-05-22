@@ -10,16 +10,17 @@ function myFunction() {
   
   var apply_data = {}
   
-  var yesterday = new Date(new Date().getTime()-1000*60*60*24);
-  var formattedDate = Utilities.formatDate(yesterday, "JST", "yyyy/MM/dd");
+  //var today = new Date(new Date().getTime()-1000*60*60*24);
+  var today = new Date();
+  var formattedDate = Utilities.formatDate(today, "JST", "yyyy/MM/dd");
   
   for (var i=0; i < sheet.length; i++ ) {
-    var v = new Date( sheet[i].date )
-    if (v == '')　continue 
+    if (sheet[i].confirm_date == "") continue
+    var v = new Date( sheet[i].confirm_date )
     
     var date = Utilities.formatDate(v, "JST", "yyyy/MM/dd")
     if (formattedDate != date) continue 
-    
+
     var job_type      = sheet[i].job_type
     var route         = sheet[i].route
     var media         = sheet[i].media
